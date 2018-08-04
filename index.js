@@ -62,3 +62,8 @@ app.get('/:id', function(req, res) {
 app.listen(3000, function(err) {
     console.log('Server is listening on port ' + 3000);
 });
+
+// git commands
+// git add .
+// git commit -m "Message"
+// git push origin master
