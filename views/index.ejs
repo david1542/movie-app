@@ -1,0 +1,10 @@
+<% include partials/header %>
+    <div class="container">
+        <h2 class="title">Movie App Search Engine</h2>
+        <form method="GET" action="/results">
+            <label for="query">Enter movie name:</label>
+            <input id="query" type="text" name="term" class="form-control search" />
+            <button class="btn btn-primary explore">Search</button>
+        </form>
+    </div>
+<% include partials/footer %>

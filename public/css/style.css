@@ -1,0 +1,53 @@
+.title {
+    margin-bottom: 20px;
+}
+
+.search {
+    margin-bottom: 10px;    
+}
+
+.card-body {
+    display: flex;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.movie-img {
+    width: 200px;
+    height: 300px;
+    margin-right: 15px;
+}
+
+.movie-title {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.movie-text {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.explore {
+    margin-top: auto;
+    margin-bottom: 20px;
+    width: 150px;
+}
+
+.movie-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.back-btn {
+    width: 100px;
+    margin-top: auto;
+}
+
+.result-search {
+    height: 40px;
+}
+
+#movieTerm {
+    width: 300px;
+}

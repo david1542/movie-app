@@ -1,0 +1,1 @@
+module.exports.OMDB_API = 'http://www.omdbapi.com/?apikey=aa6345e2&';

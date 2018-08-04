@@ -1,0 +1,16 @@
+<% include partials/header %>
+    <div class="container pt-5">
+        <div class="w-100 d-flex justify-content-start">
+            <img src="<%= movie.Poster %>" alt="Movie Poster" onerror="http://via.placeholder.com/500x400"/>
+            <div class="d-flex flex-column ml-5 pt-4">
+                <h3 class="display-4 mb-3"><%= movie.Title %></h3>
+                <p class="my-1"><strong>Release Date:</strong> <%= movie.Released %></p>
+                <p class="my-1"><strong>Director:</strong> <%= movie.Director %></p>
+                <p class="my-1"><strong>Actors:</strong> <%= movie.Actors %></p>
+                <p class="my-1"><%= movie.Plot %></p>
+
+                <a class="btn btn-primary back-btn" href="javascript:history.go(-1)">Back</a>
+            </div>
+        </div>
+    </div>
+<% include partials/footer %>
