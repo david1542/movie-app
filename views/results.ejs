@@ -1,21 +1,17 @@
 <% include partials/header %>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="my-4">Results for term: <strong><%= query %></strong></h3>
+            <h3 class="my-4 text-white">Results for term: <strong><%= query %></strong></h3>
             <input id="movieTerm" type="text" class="form-control" placeholder="Type movie name..." name="movieTerm" />
-            <a href="/" class="btn btn-primary result-search">Home</a>
+            <a href="/" class="btn btn-danger result-search">Home</a>
         </div>
         <% movies.forEach(function(movie) { %>
             <div class="card-body">
-                <img class="movie-img" src="<%= movie.Poster %>" alt="Movie Poster" onerror="this.error=null; this.src='images/default.jpg'"/>
+                <img class="movie-img" src="<%= movie.poster %>" alt="Movie Poster" onerror="this.error=null; this.src='images/default.jpg'"/>
                 <div class="h-100 w-100 movie-body">
-                    <h4 class="movie-title"><%= movie.Title %></h4> 
-                    <h4 class="movie-text"><%= movie.Year %></h4>
-<<<<<<< HEAD
-                    <a class="btn btn-primary explore" href="/<%= movie.imdbID %>">Explore more</a>
-=======
-                    <a class="btn btn-info explore" href="/<%= movie.imdbID %>">Explore more</a>
->>>>>>> a627cfc4b1734a0370708a5652a9c2ed4c0f4286
+                    <h4 class="movie-title text-white"><%= movie.title %></h4> 
+                    <h4 class="movie-text text-white"><%= movie.release_date %></h4>
+                    <a class="btn btn-danger explore" href="/<%= movie.id %>">Explore more</a>
                 </div>
             </div>
         <% }); %>
