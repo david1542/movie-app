@@ -1,11 +1,10 @@
 <% include partials/header %>
-    <div class="whole">
-        <div class="container">
+    <div class="whole h-100">
+        <div class="container d-flex flex-column justify-content-center align-items-center h-100">
             <h2 class="title text-white">Movie App Search Engine</h2>
-            <form method="GET" action="/results">
-                <label for="query" class="text-white">Enter movie name:</label>
-                <input id="query" type="text" name="term" class="form-control search" />
-                <button class="btn btn-danger explore">Search</button>
+            <form method="GET" action="/results" class="w-50">
+                <input id="query" type="text" name="term" class="form-control search" autocomplete="off" placeholder="Type movie name..."/>
+                <button class="btn btn-danger searchBtn d-block mx-auto">Search!</button>
             </form>
         </div>
     </div>    
