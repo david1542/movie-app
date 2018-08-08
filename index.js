@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
+
 // Index page
 app.get('/', function(req, res) {
     res.render('index');
@@ -38,7 +39,7 @@ app.get('/search', function(req, res) {
             res.json({
                 error: response.statusCode,
                 message: 'Something went wrong'
-            })
+            });
         } else {
             const data = JSON.parse(body);
             const results = data.results.map(function(movie){
@@ -52,7 +53,6 @@ app.get('/search', function(req, res) {
         }
     });
 });
-
 
 // Show one movie item
 app.get('/:id', function(req, res) {
