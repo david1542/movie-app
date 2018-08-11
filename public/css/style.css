@@ -107,18 +107,29 @@ body{
     background-color: black;
   }
 
-  /* auto compete css  */
 
+.search-container {
+    position: relative;
+}
+
+  /* auto compete css  */
 .autocomplete-items {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #d4d4d4;
+  background: white;
   border-bottom: none;
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
+  top: 39px;
   left: 0;
   right: 0;
+  width: 100%;
+  height: auto;
+  max-height: 225px;
+  overflow-y: scroll;
 }
 .autocomplete-items div {
   padding: 10px;
@@ -134,4 +145,12 @@ body{
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important; 
   color: #ffffff; 
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
 }
