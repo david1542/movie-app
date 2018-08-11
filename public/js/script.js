@@ -16,9 +16,13 @@ document.getElementById('movieTerm').addEventListener('input', function(e) {
     }).then(function(data) {
         const movieList = document.querySelector('.movie-list');
         movieList.innerHTML = '';
-
         const movies = data.movies;
+        
+        
         movies.forEach(function(movie) {
+
+            console.log(movie.title);
+
             // Create movie container
            const cardBody = document.createElement('div');
            cardBody.classList = 'card-body';
