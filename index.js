@@ -10,10 +10,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
-
 // Index page
 app.get('/', function(req, res) {
     res.render('index');
+});
+
+app.get('/register', function(req, res) {
+    res.render('register');
+});
+
+app.post('/register', function(req, res) {
+    if(!req.body.username || !req.body.password || !req.body.email) {
+        return res.sendStatus(400);
+    }
+
+    // Register route
 });
 
 app.get('/results', function(req, res) {
@@ -79,16 +90,20 @@ app.get('/:id', function(req, res) {
                     const data = JSON.parse(body);
                     let trailer = data.results[0];
 
-                    data.results.forEach(function(item) {
-                        if(item.size >= trailer.size && item.type === 'Trailer'){
-                            trailer = item;
-                        }
-                    });
-
-                    const movieWithTrailer = Object.assign({}, newMovie);
-                    movieWithTrailer.trailer = config.YOUTUBE + trailer.key;
-
-                    res.render('movie', {movie: movieWithTrailer});
+                    if(data.results.length > 0) {
+                        data.results.forEach(function(item) {
+                            if(item.size >= trailer.size && item.type === 'Trailer'){
+                                trailer = item;
+                            }
+                        });
+    
+                        const movieWithTrailer = Object.assign({}, newMovie);
+                        movieWithTrailer.trailer = config.YOUTUBE + trailer.key;
+    
+                        res.render('movie', {movie: movieWithTrailer});
+                    } else {
+                        res.render('movie', {movie: newMovie});      
+                    }
                 }
             });
         }
