@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const config = require('./config');
 const utils = require('./utils');
+const bcrypt = require('bcrypt-nodejs');
+const db = require('./models');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -24,7 +26,25 @@ app.post('/register', function(req, res) {
         return res.sendStatus(400);
     }
 
-    // Register route
+    bcrypt.hash(req.body.password, null, null, function(err, hash) {
+        if(err) return res.sendStatus(500);
+
+        save(hash);
+    });
+
+    function save(hash) {
+        const user = new db.User();
+
+        user.email = req.body.email;
+        user.username = req.body.username;
+        user.password = hash;
+
+        user.save(function(err, newUser) {
+            if(err || !newUser) return res.sendStatus(500);
+
+            res.json(newUser);
+        });
+    }
 });
 
 app.get('/results', function(req, res) {
